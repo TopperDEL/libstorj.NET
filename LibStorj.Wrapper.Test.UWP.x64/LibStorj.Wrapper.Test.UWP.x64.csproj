@@ -131,6 +131,12 @@
       <Version>6.0.1</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LibStorj.Wrapper.Contracts.NetStandard\LibStorj.Wrapper.Contracts.csproj">
+      <Project>{e25ad32a-2e01-481a-adf8-71c880646b23}</Project>
+      <Name>LibStorj.Wrapper.Contracts</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

@@ -26,5 +26,10 @@ namespace LibStorj.Wrapper.Test.UWP.x64
         {
             this.InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            //LibStorj.Wrapper
+        }
     }
 }

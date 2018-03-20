@@ -7,11 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibStorj.Wrapper.x64", "Lib
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibStorj.Wrapper.Test.Console.x64", "LibStorj.Wrapper.Test.Console\LibStorj.Wrapper.Test.Console.x64.csproj", "{A9BDA440-3FC5-4F71-B272-C7EDD7DDBD54}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibStorj.Wrapper.Contracts", "LibStorj.Wrapper.Contracts\LibStorj.Wrapper.Contracts.csproj", "{5BCB1DA6-9C22-4360-9C95-09A67C651CE6}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibStorj.Wrapper.Test.UWP.x64", "LibStorj.Wrapper.Test.UWP.x64\LibStorj.Wrapper.Test.UWP.x64.csproj", "{AB861673-14B4-4D4B-879A-67EC824016CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibStorj.Wrapper.Contracts.NetStandard", "LibStorj.Wrapper.Contracts.NetStandard\LibStorj.Wrapper.Contracts.NetStandard.csproj", "{E25AD32A-2E01-481A-ADF8-71C880646B23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibStorj.Wrapper.Contracts", "LibStorj.Wrapper.Contracts.NetStandard\LibStorj.Wrapper.Contracts.csproj", "{E25AD32A-2E01-481A-ADF8-71C880646B23}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,22 +49,6 @@ Global
 		{A9BDA440-3FC5-4F71-B272-C7EDD7DDBD54}.Release|x64.ActiveCfg = Release|x64
 		{A9BDA440-3FC5-4F71-B272-C7EDD7DDBD54}.Release|x64.Build.0 = Release|x64
 		{A9BDA440-3FC5-4F71-B272-C7EDD7DDBD54}.Release|x86.ActiveCfg = Release|x64
-		{5BCB1DA6-9C22-4360-9C95-09A67C651CE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5BCB1DA6-9C22-4360-9C95-09A67C651CE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5BCB1DA6-9C22-4360-9C95-09A67C651CE6}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{5BCB1DA6-9C22-4360-9C95-09A67C651CE6}.Debug|ARM.Build.0 = Debug|Any CPU
-		{5BCB1DA6-9C22-4360-9C95-09A67C651CE6}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{5BCB1DA6-9C22-4360-9C95-09A67C651CE6}.Debug|x64.Build.0 = Debug|Any CPU
-		{5BCB1DA6-9C22-4360-9C95-09A67C651CE6}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{5BCB1DA6-9C22-4360-9C95-09A67C651CE6}.Debug|x86.Build.0 = Debug|Any CPU
-		{5BCB1DA6-9C22-4360-9C95-09A67C651CE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5BCB1DA6-9C22-4360-9C95-09A67C651CE6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5BCB1DA6-9C22-4360-9C95-09A67C651CE6}.Release|ARM.ActiveCfg = Release|Any CPU
-		{5BCB1DA6-9C22-4360-9C95-09A67C651CE6}.Release|ARM.Build.0 = Release|Any CPU
-		{5BCB1DA6-9C22-4360-9C95-09A67C651CE6}.Release|x64.ActiveCfg = Release|Any CPU
-		{5BCB1DA6-9C22-4360-9C95-09A67C651CE6}.Release|x64.Build.0 = Release|Any CPU
-		{5BCB1DA6-9C22-4360-9C95-09A67C651CE6}.Release|x86.ActiveCfg = Release|Any CPU
-		{5BCB1DA6-9C22-4360-9C95-09A67C651CE6}.Release|x86.Build.0 = Release|Any CPU
 		{AB861673-14B4-4D4B-879A-67EC824016CC}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{AB861673-14B4-4D4B-879A-67EC824016CC}.Debug|ARM.ActiveCfg = Debug|ARM
 		{AB861673-14B4-4D4B-879A-67EC824016CC}.Debug|ARM.Build.0 = Debug|ARM

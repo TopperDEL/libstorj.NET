@@ -8,6 +8,7 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Button Content="Get Timestamp from Storj" Click="Button_Click"/>
 
     </Grid>
 </Page>
