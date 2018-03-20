@@ -72,8 +72,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LibStorj.Wrapper.Contracts.NetStandard\LibStorj.Wrapper.Contracts.csproj">
-      <Project>{e25ad32a-2e01-481a-adf8-71c880646b23}</Project>
+    <ProjectReference Include="..\LibStorj.Wrapper.Contracts\LibStorj.Wrapper.Contracts.csproj">
+      <Project>{e2c53816-14c6-4f91-9ed5-29d7e5794aa7}</Project>
       <Name>LibStorj.Wrapper.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\LibStorj.Wrapper.x64\LibStorj.Wrapper.x64.csproj">
