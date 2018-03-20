@@ -29,7 +29,10 @@ namespace LibStorj.Wrapper.Test.UWP.x64
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //LibStorj.Wrapper
+            LibStorj.Wrapper.StorjUtils util = new StorjUtils();
+            var timestamp = util.GetTimestamp();
+
+            Timestamp.Text = timestamp.ToString();
         }
     }
 }
