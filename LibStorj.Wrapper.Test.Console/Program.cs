@@ -19,53 +19,40 @@ namespace LibStorj.Wrapper.Test.Console.x64
 
         static async void MainAsync(string[] args)
         {
+            IStorjUtils utils = new StorjUtils();
+
+            //First test - if this fails, the system could not load the DLLs correctly.
+            var timestamp = utils.GetTimestamp();
+
             IStorj storj = new Storj();
+            //Set your keys and Mnemonics here or provide a keyfile vie the overloads.
             storj.ImportKeys(new Contracts.Models.Keys("USER","PASSWORD","MNEMONIC"),"PASSPHRASE");
-            var keyExist = storj.KeysExist;
+            var keyExist = storj.KeysExist; //This is not really working - it always returns "true"
             
-            var buckets = await storj.GetBucketsAsync();
-            var files = await storj.ListFilesAsync(buckets[4]);
+            var buckets = await storj.GetBucketsAsync(); //Load all buckets - if that works your credentials did work
+            var files = await storj.ListFilesAsync(buckets[4]); //Load the files of the first bucket
+
+            //Get the versions of the dependencies to see if they work
             var v1 = (new VersionInfo()).GetCurlVersion();
             var v2 = (new VersionInfo()).GetLibuvCVersion();
             var v3 = (new VersionInfo()).GetJsonCVersion();
             var v4 = (new VersionInfo()).GetNettleVersion();
 
-            //var deleted = await storj.DeleteFileAsync(files[0]);
-            storj.SetDownloadDirectory(@"C:\Users\Tim Parth\Desktop\storjdown\");
+            storj.UploadFile(buckets[4].Id, "Uploadfile.txt", @"YOURPATH\YOURFILE.txt"); //Test-upload a file - provide a path to a small file here
 
-            //storj.UploadFile(buckets[4].Id, "Uploadfile.txt", @"C:\Users\Tim Parth\Desktop\storjdown\Uploadfile.txt");
-            //var info = await storj.GetInfoAsync();
-            //for(int i = 0; i<10000;i++)
-            //{
+            //At this point, the upload does not work.
+            //After the next line the upload works but blocks GetInfoAsync. If the file is uploaded, the GetInfo is executed and returned
+            var info = await storj.GetInfoAsync();
 
-            //}
-            //var file = await storj.UploadFile(buckets[4].Id, "Uploadfile.txt", @"C:\Users\Tim Parth\Desktop\storjdown\Uploadfile.txt");
-            //string path = await storj.DownloadFile(files.First(), @"C:\Users\Tim Parth\Desktop\storjdown\download.txt");
-            var job = storj.DownloadFile(files.First(), @"C:\Users\Tim Parth\Desktop\storjdown\download.txt");
+            //The same with the download
+            var job = storj.DownloadFile(files.First(), @"YOURPATH\YOURFILE.txt");
             while(!job.IsFinished)
             {
                 System.Console.Clear();
                 System.Console.WriteLine("Status: " + job.CurrentProgress.DoneBytes + "/" + job.CurrentProgress.TotalBytes + " - " + job.CurrentProgress.Progress + "%");
-                //var info = await storj.GetInfoAsync();
-
+                //The same with download...
+                var infoDownload = await storj.GetInfoAsync();
             }
-            //for (int i = 0; i < 10; i++)
-            {
-                var info = await storj.GetInfoAsync();
-            }
-
-
-            return;
-
-            //System.Console.WriteLine("Starte Test...");
-            //bool result = await storj.TestAsync();
-            //System.Console.WriteLine("TestResult: " + result);
-
-            //System.Console.WriteLine("GetInfo...");
-            //var info = await storj.GetInfoAsync();
-            //System.Console.WriteLine("GetInfoResult: " + info.Title + " - " + info.Description + " - " + info.Version + " - " + info.Host);
-
-            //System.Threading.Thread.Sleep(10000);
         }
         static void OnDownloadProgress(ProgressStatusDownload progress)
         {
