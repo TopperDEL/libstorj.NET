@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LibStorj.Wrapper.AsyncCallbackWrapper
 {
-    class ListFilesCallbackAsync : TaskCompletionSource<List<File>>, io.storj.libstorj.ListFilesCallback
+    class ListFilesCallbackAsync : TaskCompletionSource<Tuple<string,List<File>>>, io.storj.libstorj.ListFilesCallback
     {
         public ListFilesCallbackAsync(string bucketId, io.storj.libstorj.Storj storj)
         {
@@ -22,21 +22,21 @@ namespace LibStorj.Wrapper.AsyncCallbackWrapper
             }
         }
 
-        public void onFilesReceived(io.storj.libstorj.File[] farr)
+        public void onFilesReceived(string bucketId, io.storj.libstorj.File[] farr)
         {
             List<File> result = new List<File>();
-            foreach(var f in farr)
+            foreach (var f in farr)
             {
                 File file = new File(f.getId(), f.getBucketId(), f.getName(), f.getCreated(), f.isDecrypted(), f.getSize(), f.getMimeType(), f.getErasure(), f.getIndex(), f.getHMAC());
                 result.Add(file);
             }
 
-            SetResult(result);
+            SetResult(new Tuple<string, List<File>>(bucketId, result));
         }
 
-        public void onError(int i, string str)
+        public void onError(string bucketId, int code, string message)
         {
-            SetException(new ListFilesFailedException(i, str));
+            SetException(new ListFilesFailedException(bucketId, code, message));
         }
     }
 }

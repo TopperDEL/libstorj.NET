@@ -1,4 +1,4 @@
-0﻿using LibStorj.Wrapper.Contracts.Interfaces;
+﻿using LibStorj.Wrapper.Contracts.Interfaces;
 using LibStorj.Wrapper.Contracts.Models;
 using LibStorj.Wrapper.x64;
 using Nito.AsyncEx;
@@ -45,7 +45,7 @@ namespace LibStorj.Wrapper.Test.Console.x64
             var info = await storj.GetInfoAsync();
 
             //The same with download
-            var job = storj.DownloadFile(files.First(), @"YOURPATH\YOURFILE.txt");
+            var job = storj.DownloadFile(files.Item2.First(), @"YOURPATH\YOURFILE.txt");
             while(!job.IsFinished)
             {
                 System.Console.Clear();

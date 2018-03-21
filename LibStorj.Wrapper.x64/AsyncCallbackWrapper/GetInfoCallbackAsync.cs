@@ -15,15 +15,15 @@ namespace LibStorj.Wrapper.AsyncCallbackWrapper
             storj.getInfo(this);
         }
 
-        public void onInfoReceived(string str1, string str2, string str3, string str4)
+        public void onInfoReceived(string title, string description, string version, string host)
         {
-            Info result = new Info(str1, str2, str3, str4);
+            Info result = new Info(title, description, version, host);
             SetResult(result);
         }
 
-        public void onError(int i, string str)
+        public void onError(int code, string message)
         {
-            SetException(new GetInfoFailedException(i, str));
+            SetException(new GetInfoFailedException(code, message));
         }
     }
 }

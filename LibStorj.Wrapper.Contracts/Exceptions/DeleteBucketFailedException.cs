@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace LibStorj.Wrapper.Contracts.Exceptions
 {
-    public class ListFilesFailedException : GenericException
+    public class DeleteBucketFailedException : GenericException
     {
         public string BucketId { get; private set; }
-        public ListFilesFailedException(string bucketId, int errorCode, string errorMessage) : base(errorCode, errorMessage)
+        public DeleteBucketFailedException(string bucketId, int errorCode, string errorMessage) : base(errorCode, errorMessage)
         {
             BucketId = bucketId;
         }

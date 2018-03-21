@@ -27,9 +27,9 @@ namespace LibStorj.Wrapper.AsyncCallbackWrapper
             SetResult(new Bucket(b.getId(), b.getName(), b.getCreated(), b.isDecrypted()));
         }
 
-        public void onError(int i, string str)
+        public void onError(string bucketName, int code, string message)
         {
-            SetException(new GetBucketFailedException(i, str));
+            SetException(new CreateBucketFailedException(bucketName, code, message));
         }
     }
 }

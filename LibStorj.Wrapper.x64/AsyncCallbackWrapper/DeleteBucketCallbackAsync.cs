@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LibStorj.Wrapper.AsyncCallbackWrapper
 {
-    class DeleteBucketCallbackAsync : TaskCompletionSource<bool>, io.storj.libstorj.DeleteBucketCallback
+    class DeleteBucketCallbackAsync : TaskCompletionSource<string>, io.storj.libstorj.DeleteBucketCallback
     {
         public DeleteBucketCallbackAsync(string bucketId, io.storj.libstorj.Storj storj)
         {
@@ -22,14 +22,14 @@ namespace LibStorj.Wrapper.AsyncCallbackWrapper
             }
         }
 
-        public void onBucketDeleted()
+        public void onBucketDeleted(string bucketId)
         {
-            SetResult(true);
+            SetResult(bucketId);
         }
 
-        public void onError(int i, string str)
+        public void onError(string bucketId, int code, string message)
         {
-            SetResult(false);
+            SetException(new LibStorj.Wrapper.Contracts.Exceptions.DeleteBucketFailedException(bucketId, code, message));
         }
     }
 }

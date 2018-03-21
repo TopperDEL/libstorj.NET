@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LibStorj.Wrapper.AsyncCallbackWrapper
 {
-    class DeleteFileCallbackAsync : TaskCompletionSource<bool>, io.storj.libstorj.DeleteFileCallback
+    class DeleteFileCallbackAsync : TaskCompletionSource<string>, io.storj.libstorj.DeleteFileCallback
     {
         public DeleteFileCallbackAsync(string bucketId, string fileId, io.storj.libstorj.Storj storj)
         {
@@ -22,14 +22,14 @@ namespace LibStorj.Wrapper.AsyncCallbackWrapper
             }
         }
 
-        public void onFileDeleted()
+        public void onFileDeleted(string fileId)
         {
-            SetResult(true);
+            SetResult(fileId);
         }
 
-        public void onError(int i, string str)
+        public void onError(string fileId, int code, string message)
         {
-            SetResult(false);
+            SetException(new LibStorj.Wrapper.Contracts.Exceptions.DeleteFileFailedException(fileId, code, message));
         }
     }
 }

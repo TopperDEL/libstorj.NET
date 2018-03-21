@@ -63,22 +63,22 @@ namespace LibStorj.Wrapper.x64
             return new CreateBucketCallbackAsync(bucketName, _storjJava).Task;
         }
 
-        public Task<bool> DeleteBucketAsync(string bucketId)
+        public Task<string> DeleteBucketAsync(string bucketId)
         {
             return new DeleteBucketCallbackAsync(bucketId, _storjJava).Task;
         }
 
-        public Task<bool> DeleteBucketAsync(Bucket bucket)
+        public Task<string> DeleteBucketAsync(Bucket bucket)
         {
             return DeleteBucketAsync(bucket.Id);
         }
 
-        public Task<List<File>> ListFilesAsync(string bucketId)
+        public Task<Tuple<string,List<File>>> ListFilesAsync(string bucketId)
         {
             return new ListFilesCallbackAsync(bucketId, _storjJava).Task;
         }
 
-        public Task<List<File>> ListFilesAsync(Bucket bucket)
+        public Task<Tuple<string, List<File>>> ListFilesAsync(Bucket bucket)
         {
             return ListFilesAsync(bucket.Id);
         }
@@ -93,27 +93,27 @@ namespace LibStorj.Wrapper.x64
             return GetFileAsync(bucket.Id, fileId);
         }
 
-        public Task<string> GetFileIdAsync(string bucketId, string fileName)
+        public Task<Tuple<string,string>> GetFileIdAsync(string bucketId, string fileName)
         {
             return new GetFileIdCallbackAsync(bucketId, fileName, _storjJava).Task;
         }
 
-        public Task<string> GetFileIdAsync(Bucket bucket, string fileName)
+        public Task<Tuple<string, string>> GetFileIdAsync(Bucket bucket, string fileName)
         {
             return GetFileIdAsync(bucket.Id, fileName);
         }
 
-        public Task<bool> DeleteFileAsync(string bucketId, string fileId)
+        public Task<string> DeleteFileAsync(string bucketId, string fileId)
         {
             return new DeleteFileCallbackAsync(bucketId, fileId, _storjJava).Task;
         }
 
-        public Task<bool> DeleteFileAsync(Bucket bucket, string fileId)
+        public Task<string> DeleteFileAsync(Bucket bucket, string fileId)
         {
             return DeleteFileAsync(bucket.Id, fileId);
         }
 
-        public Task<bool> DeleteFileAsync(File file)
+        public Task<string> DeleteFileAsync(File file)
         {
             return DeleteFileAsync(file.BucketId, file.Id);
         }

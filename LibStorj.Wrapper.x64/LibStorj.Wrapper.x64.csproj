@@ -33,6 +33,9 @@
     <Reference Include="libstorj-java-0.7.3">
       <HintPath>libstorj-java-0.7.3.dll</HintPath>
     </Reference>
+    <Reference Include="libstorj-java-0.8">
+      <HintPath>libstorj-java-0.8.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>
@@ -85,7 +88,7 @@
     <None Update="libstorj-2.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="libstorj-java-0.7.3.dll">
+    <None Update="libstorj-java-0.8.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="libuv-1.dll">

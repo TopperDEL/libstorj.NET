@@ -28,9 +28,9 @@ namespace LibStorj.Wrapper.AsyncCallbackWrapper
             SetResult(file);
         }
 
-        public void onError(int i, string str)
+        public void onError(string fileId, int code, string message)
         {
-            SetException(new GetFileFailedException(i, str));
+            SetException(new GetFileFailedException(fileId, code, message));
         }
     }
 }
