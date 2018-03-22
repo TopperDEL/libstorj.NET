@@ -36,7 +36,7 @@ namespace LibStorj.Wrapper.Contracts.Interfaces
         DownloadJob DownloadFile(File file, string localPath);
         DownloadJob DownloadFile(Bucket bucket, string fileId, string localPath);
         DownloadJob DownloadFile(string bucketId, string fileId, string localPath);
-        Task<File> UploadFile(Bucket bucket, string fileName, string localPath, IProgress<ProgressStatusUpload> progress = null);
-        Task<File> UploadFile(string bucketId, string fileName, string localPath, IProgress<ProgressStatusUpload> progress = null);
+        UploadJob UploadFile(Bucket bucket, string fileName, string localPath);
+        UploadJob UploadFile(string bucketId, string fileName, string localPath);
     }
 }

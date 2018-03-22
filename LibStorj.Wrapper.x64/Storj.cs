@@ -133,14 +133,14 @@ namespace LibStorj.Wrapper.x64
             return DownloadFileCallbackAsync.DownloadFile(bucketId, fileId, localPath, _storjJava);
         }
 
-        public Task<File> UploadFile(Bucket bucket, string fileName, string localPath, IProgress<ProgressStatusUpload> progress = null)
+        public UploadJob UploadFile(Bucket bucket, string fileName, string localPath)
         {
-            return UploadFile(bucket.Id, fileName, localPath, progress);
+            return UploadFile(bucket.Id, fileName, localPath);
         }
 
-        public Task<File> UploadFile(string bucketId, string fileName, string localPath, IProgress<ProgressStatusUpload> progress = null)
+        public UploadJob UploadFile(string bucketId, string fileName, string localPath)
         {
-            return new UploadFileCallbackAsync(bucketId, fileName, localPath, progress, _storjJava).Task;
+            return UploadFileCallbackAsync.UploadFile(bucketId, fileName, localPath, _storjJava);
         }
 
 

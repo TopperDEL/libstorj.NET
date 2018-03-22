@@ -8,38 +8,51 @@ using System.Threading.Tasks;
 
 namespace LibStorj.Wrapper.AsyncCallbackWrapper
 {
-    class UploadFileCallbackAsync : TaskCompletionSource<File>, io.storj.libstorj.UploadFileCallback
+    class UploadFileCallbackAsync : io.storj.libstorj.UploadFileCallback
     {
-        private IProgress<ProgressStatusUpload> _progress;
+        private UploadJob _job;
 
-        public UploadFileCallbackAsync(string bucketId, string fileName, string localPath, IProgress<ProgressStatusUpload> progress, io.storj.libstorj.Storj storj)
+        public static UploadJob UploadFile(string bucketId, string fileName, string localPath, io.storj.libstorj.Storj storj)
         {
-            _progress = progress;
+            UploadJob job = new UploadJob(fileName);
+            UploadFileCallbackAsync callback = new UploadFileCallbackAsync(job);
             try
             {
-                storj.uploadFile(bucketId, fileName, localPath, this); //ToDo: CancelHandle
+
+                var handle = storj.uploadFile(bucketId, fileName, localPath, callback);
+                job.Id = handle;
             }
             catch (io.storj.libstorj.KeysNotFoundException)
             {
                 throw new KeysNotFoundException();
             }
+            return job;
         }
 
-        public void onProgress(string filePath, double progress, long downloadedBytes, long totalBytes)
+        private UploadFileCallbackAsync(UploadJob job)
         {
-            if (_progress != null)
-                _progress.Report(new ProgressStatusUpload(filePath, progress, downloadedBytes, totalBytes));
+            _job = job;
         }
 
-        public void onComplete(string str, io.storj.libstorj.File f)
+        public void onProgress(string filePath, double progress, long uploadedBytes, long totalBytes)
         {
-            File file = new File(f.getId(), f.getBucketId(), f.getName(), f.getCreated(), f.isDecrypted(), f.getSize(), f.getMimeType(), f.getErasure(), f.getIndex(), f.getHMAC());
-            SetResult(file);
+            _job.CurrentProgress = new ProgressStatusUpload(filePath, progress, uploadedBytes, totalBytes);
+            _job.RaiseProgressChanged();
+        }
+
+        public void onComplete(string filePath, io.storj.libstorj.File f)
+        {
+            _job.CurrentProgress = new ProgressStatusUpload(filePath, 100, f.getSize(), f.getSize());
+            _job.IsFinished = true;
+            _job.RaiseJobFinished();
         }
 
         public void onError(string filePath, int errorCode, string message)
         {
-            SetException(new UploadFileFailedException(filePath, errorCode, message));
+            _job.IsOnError = true;
+            _job.ErrorCode = errorCode;
+            _job.ErrorMessage = message;
+            _job.RaiseJobFailed();
         }
     }
 }

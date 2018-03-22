@@ -29,7 +29,7 @@ namespace LibStorj.Wrapper.AsyncCallbackWrapper
             return job;
         }
 
-        public DownloadFileCallbackAsync(DownloadJob job)
+        private DownloadFileCallbackAsync(DownloadJob job)
         {
             _job = job;
         }
@@ -37,18 +37,22 @@ namespace LibStorj.Wrapper.AsyncCallbackWrapper
         public void onProgress(string fileId, double progress, long downloadedBytes, long totalBytes)
         {
             _job.CurrentProgress = new ProgressStatusDownload(fileId, progress, downloadedBytes, totalBytes);
+            _job.RaiseProgressChanged();
         }
 
         public void onComplete(string fileId, string localPath)
         {
              _job.CurrentProgress = new ProgressStatusDownload(fileId, 100, 0, 0);
             _job.IsFinished = true;
+            _job.RaiseJobFinished();
         }
 
         public void onError(string fileId, int errorCode, string message)
         {
             _job.IsOnError = true;
-            //Todo: fehlermeldung übernehmen
+            _job.ErrorCode = errorCode;
+            _job.ErrorMessage = message;
+            _job.RaiseJobFailed();
         }
     }
 }
