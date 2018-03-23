@@ -40,7 +40,7 @@ Create a storj-object:
  Simply open the solution in Visual Studio 2017 and hit F5. All dependencies are included or should download automatically. If you want to build the IKVM-wrapper-DLL on your own, follow these steps:
  * Download and install [IKVM.Net](https://www.ikvm.net/)
  * Download the JAR-file from the java-libstorj-release you are interested in
- * open a command-prompt and type ´ikvmc YOURJAR.jar -platform:x64´
+ * open a command-prompt and type `ikvmc YOURJAR.jar -platform:x64`
  * include the resulting DLL in your project and build. Don't forget to also update the java-storj.dll
  
  ## IKVM.Net
