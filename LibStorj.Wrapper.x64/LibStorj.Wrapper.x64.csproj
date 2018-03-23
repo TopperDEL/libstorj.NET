@@ -15,6 +15,9 @@ See www.storj.io for details.</Description>
     <RepositoryUrl>https://github.com/TopperDEL/libstorj.NET</RepositoryUrl>
     <PackageTags>storj c# libstorj IKVM</PackageTags>
     <AssemblyName>LibStorj.Wrapper.x64</AssemblyName>
+    <PackageIconUrl>https://storj.io/press-kit/Storj-symbol.png</PackageIconUrl>
+    <AssemblyVersion>0.8.1.0</AssemblyVersion>
+    <FileVersion>0.8.1.0</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -106,7 +109,7 @@ See www.storj.io for details.</Description>
     <Content Include="storj-java.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="storj-README.txt" Pack="true" CopyToOutputDirectory="Always"/>
+    <None Include="storj-README.txt" Pack="true" CopyToOutputDirectory="Always" />
   </ItemGroup>
 
   <ItemGroup>

@@ -12,6 +12,9 @@
     <PackageTags>storj c# libstorj</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>LibStorj.NET.Wrapper.Contracts</PackageId>
+    <PackageIconUrl>https://storj.io/press-kit/Storj-symbol.png</PackageIconUrl>
+    <AssemblyVersion>0.8.1.0</AssemblyVersion>
+    <FileVersion>0.8.1.0</FileVersion>
   </PropertyGroup>
 
 </Project>
