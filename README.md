@@ -29,9 +29,9 @@ Be sure that you build your project for x64.
 
 Create a storj-object:
 
-´´´csharp
+```csharp
  LibStorj.Wrapper.x64.Storj storj = new  LibStorj.Wrapper.x64.Storj();
- ´´´
+```
  
  Have fun! More info on how to use it will be found in the wiki, soon.
  
