@@ -3,7 +3,7 @@
 
 **A .Net/C#-wrapper for Storj**
 
-This library enables you to connect to the storj-network to upload and retrieve files to the distributed and secure cloud-storage. It is based on the [java-libstorj-binding](https://github.com/Storj/java-libstorj( and has the same feature-set. The JAR of the java-binding was converted via [IKVM.Net](https://www.ikvm.net/) and therefore has some restrictions. It currently does not work from UWP and it might be sligthly slower than other wrappers as it involves the Java Virtual Machine provided by IKVM. And during runtime there are many DLL-files needed (which are all included in this wrapper, though). Furthermore, there is only an x64-bit-version available.
+This library enables you to connect to the storj-network to upload and retrieve files to the distributed and secure cloud-storage. It is based on the [java-libstorj-binding](https://github.com/Storj/java-libstorj) and has the same feature-set. The JAR of the java-binding was converted via [IKVM.Net](https://www.ikvm.net/) and therefore has some restrictions. It currently does not work from UWP and it might be sligthly slower than other wrappers as it involves the Java Virtual Machine provided by IKVM. And during runtime there are many DLL-files needed (which are all included in this wrapper, though). Furthermore, there is only an x64-bit-version available.
 
 But beside that it is the very first fully working .Net-Wrapper for Storj! Yay!
 
