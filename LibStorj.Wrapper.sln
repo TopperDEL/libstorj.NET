@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2006
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibStorj.Wrapper.x64", "LibStorj.Wrapper.x64\LibStorj.Wrapper.x64.csproj", "{D9BD806C-6077-400B-A6D0-DBE1A58E3FA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibStorj.Wrapper.x64", "LibStorj.Wrapper.x64\LibStorj.Wrapper.x64.csproj", "{D9BD806C-6077-400B-A6D0-DBE1A58E3FA6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibStorj.Wrapper.Test.Console.x64", "LibStorj.Wrapper.Test.Console\LibStorj.Wrapper.Test.Console.x64.csproj", "{A9BDA440-3FC5-4F71-B272-C7EDD7DDBD54}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibStorj.Wrapper.Test.UWP.x64", "LibStorj.Wrapper.Test.UWP.x64\LibStorj.Wrapper.Test.UWP.x64.csproj", "{AB861673-14B4-4D4B-879A-67EC824016CC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibStorj.Wrapper.Contracts", "LibStorj.Wrapper.Contracts\LibStorj.Wrapper.Contracts.csproj", "{E2C53816-14C6-4F91-9ED5-29D7E5794AA7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nuget", "Nuget", "{4B0BA183-F66D-4F59-A669-3724486467CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

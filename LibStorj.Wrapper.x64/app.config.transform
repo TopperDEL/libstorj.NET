@@ -1,0 +1,5 @@
+﻿<configuration>
+	<appSettings>
+		<add key="ikvm:java.library.path" value=".\"/>
+	</appSettings>
+</configuration>

@@ -2,7 +2,112 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>LibStorj.NET.Wrapper.x64</PackageId>
+    <Version>0.8.1</Version>
+    <Authors>Tim Parth</Authors>
+    <Company>Tim Parth</Company>
+    <Product>libstorj.NET</Product>
+    <Description>This package provides a wrapper to acces the Storj-network. With the storj network you can store files on a distributed and secure cloud platform, where you really own your data.
+
+See www.storj.io for details.</Description>
+    <PackageProjectUrl>https://topperdel.github.io/libstorj.NET/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/TopperDEL/libstorj.NET</RepositoryUrl>
+    <PackageTags>storj c# libstorj IKVM</PackageTags>
+    <AssemblyName>LibStorj.Wrapper.x64</AssemblyName>
   </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="app.config.transform" />
+    <None Remove="ikvm-native-win32-x64.dll" />
+    <None Remove="IKVM.OpenJDK.Core.dll" />
+    <None Remove="IKVM.OpenJDK.Security.dll" />
+    <None Remove="IKVM.OpenJDK.Text.dll" />
+    <None Remove="IKVM.OpenJDK.Util.dll" />
+    <None Remove="IKVM.Reflection.dll" />
+    <None Remove="IKVM.Runtime.dll" />
+    <None Remove="IKVM.Runtime.JNI.dll" />
+    <None Remove="libcurl-4.dll" />
+    <None Remove="libgmp-10.dll" />
+    <None Remove="libgnutls-30.dll" />
+    <None Remove="libhogweed-4.dll" />
+    <None Remove="libjson-c-3.dll" />
+    <None Remove="libnettle-6.dll" />
+    <None Remove="libstorj-2.dll" />
+    <None Remove="libstorj-java-0.8.1.dll" />
+    <None Remove="libuv-1.dll" />
+    <None Remove="storj-java.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="app.config.transform">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ikvm-native-win32-x64.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IKVM.OpenJDK.Core.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IKVM.OpenJDK.Security.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IKVM.OpenJDK.Text.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IKVM.OpenJDK.Util.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IKVM.Reflection.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IKVM.Runtime.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IKVM.Runtime.JNI.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="libcurl-4.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="libgmp-10.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="libgnutls-30.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="libhogweed-4.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="libjson-c-3.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="libnettle-6.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="libstorj-2.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="libstorj-java-0.8.1.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="libuv-1.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="storj-java.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="storj-README.txt" Pack="true" CopyToOutputDirectory="Always"/>
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\LibStorj.Wrapper.Contracts\LibStorj.Wrapper.Contracts.csproj" />
@@ -30,9 +135,6 @@
     <Reference Include="IKVM.Runtime.JNI">
       <HintPath>IKVM.Runtime.JNI.dll</HintPath>
     </Reference>
-    <Reference Include="libstorj-java-0.8">
-      <HintPath>libstorj-java-0.8.dll</HintPath>
-    </Reference>
     <Reference Include="libstorj-java-0.8.1">
       <HintPath>libstorj-java-0.8.1.dll</HintPath>
     </Reference>
@@ -43,61 +145,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="ikvm-native-win32-x64.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="IKVM.OpenJDK.Core.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="IKVM.OpenJDK.Security.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="IKVM.OpenJDK.Text.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="IKVM.OpenJDK.Util.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="IKVM.Reflection.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="IKVM.Runtime.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="IKVM.Runtime.JNI.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="libcurl-4.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="libgmp-10.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="libgnutls-30.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="libhogweed-4.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="libjson-c-3.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="libnettle-6.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="libstorj-2.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="libstorj-java-0.8.1.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Update="libstorj-java-0.8.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="libuv-1.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="storj-java.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
