@@ -20,12 +20,12 @@ All Methods use the async/await-pattern.
 
 ## Usage
 
-A nuget-package is currently in the works. Until this is finished, get the latest release and add the included DLLs within your project. Set those DLL's to "Copy if newer", so they get copied to the output directory. Add the following DLL's as assembly-references to your project:
+There is a nuget-package available - simply search for "storj". If you can't or don't want to use Nuget, get the latest release and add the included DLLs within your project. Set those DLL's to "Copy if newer", so they get copied to the output directory. Add the following DLL's as assembly-references to your project:
 
 * LibStorj.Wrapper.Contracts.dll
 * LibStorj.Wrapper.x64.dll
 
-Be sure that you build your project for x64.
+**Be sure that you build your project for x64.**
 
 Create a storj-object:
 
