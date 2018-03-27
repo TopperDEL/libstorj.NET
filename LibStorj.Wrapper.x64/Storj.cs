@@ -12,7 +12,7 @@ namespace LibStorj.Wrapper.x64
     /// <summary>
     /// This class provides access to the storj-network
     /// </summary>
-    public class Storj : IStorj
+    public class Storj : IStorj, IDisposable
     {
         private io.storj.libstorj.Storj _storjJava;
 
@@ -335,6 +335,34 @@ namespace LibStorj.Wrapper.x64
         public bool DeleteKeys()
         {
             return _storjJava.deleteKeys();
+        }
+
+        /// <summary>
+        /// Disposes the storj-object
+        /// </summary>
+        public void Dispose()
+        {
+            _storjJava.destroy();
+        }
+
+        /// <summary>
+        /// Cancels a download-job
+        /// </summary>
+        /// <param name="job">The job to cancel</param>
+        /// <returns>True, if the job got cancelled; false if not</returns>
+        public bool CancelDownload(DownloadJob job)
+        {
+            return _storjJava.cancelDownload(job.Id);
+        }
+
+        /// <summary>
+        /// Cancels an upload-job
+        /// </summary>
+        /// <param name="job">The job to cancel</param>
+        /// <returns>True, if the job got cancelled; false if not</returns>
+        public bool CancelUpload(UploadJob job)
+        {
+            return _storjJava.cancelUpload(job.Id);
         }
 
         /// <summary>

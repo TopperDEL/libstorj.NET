@@ -38,5 +38,7 @@ namespace LibStorj.Wrapper.Contracts.Interfaces
         DownloadJob DownloadFile(string bucketId, string fileId, string localPath);
         UploadJob UploadFile(Bucket bucket, string fileName, string localPath);
         UploadJob UploadFile(string bucketId, string fileName, string localPath);
+        bool CancelDownload(DownloadJob job);
+        bool CancelUpload(UploadJob job);
     }
 }
