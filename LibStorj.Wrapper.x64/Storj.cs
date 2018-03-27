@@ -7,6 +7,7 @@ using LibStorj.Wrapper.AsyncCallbackWrapper;
 using LibStorj.Wrapper.Contracts.Interfaces;
 using LibStorj.Wrapper.Contracts.Models;
 
+[assembly: System.Runtime.CompilerServices.InternalsVisibleTo("LibStorj.Wrapper.Test")]
 namespace LibStorj.Wrapper.x64
 {
     /// <summary>
@@ -40,6 +41,16 @@ namespace LibStorj.Wrapper.x64
         public Storj(string url)
         {
             _storjJava = new io.storj.libstorj.Storj(url);
+        }
+
+        /// <summary>
+        /// Create a storj-object with the given storj-java-object.
+        /// Used for unit-tests.
+        /// </summary>
+        /// <param name="storjJava">The storjJava-Object</param>
+        internal Storj(io.storj.libstorj.Storj storjJava)
+        {
+            _storjJava = storjJava;
         }
 
         /// <summary>
