@@ -24,7 +24,7 @@ namespace LibStorj.Wrapper.AsyncCallbackWrapper
 
         public void onFileReceived(io.storj.libstorj.File f)
         {
-            File file = new File(f.getId(), f.getBucketId(), f.getName(), f.getCreated(), f.isDecrypted(), f.getSize(), f.getMimeType(), f.getErasure(), f.getIndex(), f.getHMAC());
+            File file = new File(f.getId(), f.getBucketId(), f.getName(), f.getCreated(), f.isDecrypted(), f.getSize(), f.getMimeType(), f.getErasure(), f.getIndex(), f.getHMAC(), f.getFileName(), f.isDirectory());
             SetResult(file);
         }
 

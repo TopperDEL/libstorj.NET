@@ -366,6 +366,26 @@ namespace LibStorj.Wrapper.x64
         }
 
         /// <summary>
+        /// Returns the files within a bucket
+        /// </summary>
+        /// <param name="bucket">The bucket which files should be listed</param>
+        /// <returns>The files within the bucket</returns>
+        public Task<List<File>> GetChildrenAsync(Bucket bucket)
+        {
+            return new GetChildrenCallbackAsync(bucket, _storjJava).Task;
+        }
+
+        /// <summary>
+        /// Returns the files within a file (below buckets there are only files currently - a folder is a file, too).
+        /// </summary>
+        /// <param name="file">The file which files should be listed</param>
+        /// <returns>The files within the file</returns>
+        public Task<List<File>> GetChildrenAsync(File file)
+        {
+            return new GetChildrenCallbackAsync(file, _storjJava).Task;
+        }
+
+        /// <summary>
         /// Checks if keys exist
         /// </summary>
         public bool KeysExist

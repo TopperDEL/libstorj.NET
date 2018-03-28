@@ -40,5 +40,8 @@ namespace LibStorj.Wrapper.Contracts.Interfaces
         UploadJob UploadFile(string bucketId, string fileName, string localPath);
         bool CancelDownload(DownloadJob job);
         bool CancelUpload(UploadJob job);
+
+        Task<List<File>> GetChildrenAsync(Bucket bucket);
+        Task<List<File>> GetChildrenAsync(File file);
     }
 }

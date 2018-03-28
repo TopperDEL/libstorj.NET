@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.0</TargetFramework>
-    <Version>0.8.1</Version>
+    <Version>0.9</Version>
     <Authors>Tim Parth</Authors>
     <Company>Tim Parth</Company>
     <Product>libstorj.NET</Product>
@@ -13,8 +13,8 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>LibStorj.NET.Wrapper.Contracts</PackageId>
     <PackageIconUrl>https://storj.io/press-kit/Storj-symbol.png</PackageIconUrl>
-    <AssemblyVersion>0.8.1.0</AssemblyVersion>
-    <FileVersion>0.8.1.0</FileVersion>
+    <AssemblyVersion>0.9.0.0</AssemblyVersion>
+    <FileVersion>0.9.0.0</FileVersion>
   </PropertyGroup>
 
 </Project>

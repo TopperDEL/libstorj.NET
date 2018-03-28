@@ -18,7 +18,7 @@ namespace LibStorj.Wrapper.Contracts.Models
         public string Erasure { get; private set; }
         public string Index { get; private set; }
         public string Hmac { get; private set; }
-
+        public string FileName { get; set; }
         /// <summary>
         /// The Storj Bridge has a flat structure of bucket and files. There is no real
         /// file tree structure with subdirectories.However, a pseudo tree structure can
@@ -26,15 +26,9 @@ namespace LibStorj.Wrapper.Contracts.Models
         /// "mydir/mysubdir/myfile". It is assumed that a file is a directory if its name
         /// ends with a slash character, e.g. "mydir/mysubdir/".
         /// </summary>
-        public bool IsDirectory
-        {
-            get
-            {
-                return Name.EndsWith("/");
-            }
-        }
+        public bool IsDirectory { get; set; }
 
-        public File(string id, string bucketId, string name, string created, bool isDecrypted, long size, string mimeType, string erasure, string index, string hmac)
+        public File(string id, string bucketId, string name, string created, bool isDecrypted, long size, string mimeType, string erasure, string index, string hmac,string fileName, bool isDirectory)
         {
             Id = id;
             BucketId = bucketId;
@@ -46,6 +40,8 @@ namespace LibStorj.Wrapper.Contracts.Models
             Erasure = erasure;
             Index = index;
             Hmac = hmac;
+            FileName = fileName;
+            IsDirectory = isDirectory;
         }
 
         public override bool Equals(object obj)
