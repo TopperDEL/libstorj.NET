@@ -24,7 +24,7 @@ namespace LibStorj.Wrapper.AsyncCallbackWrapper
 
         public void onBucketReceived(io.storj.libstorj.Bucket b)
         {
-            Bucket bucket = new Bucket(b.getId(), b.getName(), b.getCreated(), b.isDecrypted());
+            Bucket bucket = new Bucket(b.getId(), b.getName(), b.getSimpleName(), b.getCreated(), b.isDecrypted());
             SetResult(bucket);
         }
 

@@ -31,7 +31,7 @@ namespace LibStorj.Wrapper.AsyncCallbackWrapper
             List<File> result = new List<File>();
             foreach (var f in farr)
             {
-                File file = new File(f.getId(), f.getBucketId(), f.getName(), f.getCreated(), f.isDecrypted(), f.getSize(), f.getMimeType(), f.getErasure(), f.getIndex(), f.getHMAC(), f.getFileName(), f.isDirectory());
+                File file = new File(f.getId(), f.getBucketId(), f.getName(), f.getSimpleName(), f.getCreated(), f.isDecrypted(), f.getSize(), f.getMimeType(), f.getErasure(), f.getIndex(), f.getHMAC(), f.isDirectory());
                 result.Add(file);
             }
 

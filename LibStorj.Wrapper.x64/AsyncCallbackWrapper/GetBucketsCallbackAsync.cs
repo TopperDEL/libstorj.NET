@@ -27,7 +27,7 @@ namespace LibStorj.Wrapper.AsyncCallbackWrapper
             List<Bucket> result = new List<Bucket>();
             foreach(var b in barr)
             {
-                Bucket bucket = new Bucket(b.getId(), b.getName(), b.getCreated(), b.isDecrypted());
+                Bucket bucket = new Bucket(b.getId(), b.getName(), b.getSimpleName(), b.getCreated(), b.isDecrypted());
                 result.Add(bucket);
             }
             SetResult(result);

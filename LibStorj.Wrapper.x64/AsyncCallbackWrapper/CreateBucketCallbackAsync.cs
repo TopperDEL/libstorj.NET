@@ -37,7 +37,7 @@ namespace LibStorj.Wrapper.AsyncCallbackWrapper
         /// <param name="b">The created bucket</param>
         public void onBucketCreated(io.storj.libstorj.Bucket b)
         {
-            SetResult(new Bucket(b.getId(), b.getName(), b.getCreated(), b.isDecrypted()));
+            SetResult(new Bucket(b.getId(), b.getName(), b.getSimpleName(), b.getCreated(), b.isDecrypted()));
         }
 
         /// <summary>

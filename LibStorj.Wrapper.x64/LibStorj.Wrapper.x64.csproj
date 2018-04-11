@@ -141,9 +141,6 @@ See www.storj.io for details.</Description>
     <Reference Include="IKVM.Runtime.JNI">
       <HintPath>IKVM.Runtime.JNI.dll</HintPath>
     </Reference>
-    <Reference Include="libstorj-java-0.8.1">
-      <HintPath>libstorj-java-0.8.1.dll</HintPath>
-    </Reference>
     <Reference Include="libstorj-java-0.9">
       <HintPath>libstorj-java-0.9.dll</HintPath>
     </Reference>
