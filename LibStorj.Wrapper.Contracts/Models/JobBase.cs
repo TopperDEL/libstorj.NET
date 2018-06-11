@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace LibStorj.Wrapper.Contracts.Models
+﻿namespace LibStorj.Wrapper.Contracts.Models
 {
     public delegate void ProgressChanged(JobBase job);
     public delegate void JobFinished(JobBase job);
